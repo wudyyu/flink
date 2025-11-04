@@ -62,3 +62,6 @@ target/
 .classpath
 .settings/
 .factorypath
+
+.DS_Store
+target/

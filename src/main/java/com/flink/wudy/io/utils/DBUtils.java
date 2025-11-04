@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 
 public class DBUtils {
 
-    public static final String jdbcUrl = "jdbc:mysql://localhost:3306/test?useSSL=false&serverTimeZone=UTC&characterEncoding=utf8";
+    public static final String jdbcUrl = "jdbc:mysql://localhost:3306/bss?useSSL=false&serverTimeZone=UTC&characterEncoding=utf8";
 
     public static final String userName = "root";
 

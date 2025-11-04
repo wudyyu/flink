@@ -16,7 +16,7 @@ public class UserDefinedSource extends RichParallelSourceFunction<CustomInputMod
 
     @Override
     public void run(SourceContext<CustomInputModel> sourceContext) throws Exception {
-        List<String> productIds = Arrays.asList("Clothes","Shoes");
+        List<String> productIds = Arrays.asList("book","computer","food","car");
         List<Integer> incomeList = Arrays.asList(12,22,32);
         List<Integer> countList = Arrays.asList(15,25,35);
         List<BigDecimal> price = Arrays.asList(BigDecimal.ONE, BigDecimal.valueOf(2),BigDecimal.valueOf(3));

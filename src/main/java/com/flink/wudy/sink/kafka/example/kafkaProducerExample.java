@@ -6,6 +6,7 @@ import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
 import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.api.java.utils.ParameterTool;
+import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -23,6 +24,8 @@ import java.util.Properties;
  *
  */
 public class kafkaProducerExample {
+    private static final ObjectMapper objectMapper = new ObjectMapper();
+
     public static void main(String[] args) throws Exception {
         Properties properties = new Properties();
 
@@ -36,7 +39,7 @@ public class kafkaProducerExample {
         env.setMaxParallelism(6);
 
         // 添加数据源
-        DataStreamSource<CustomInputModel> source =  env.addSource(new CustomSource());
+        DataStreamSource<CustomInputModel> source = env.addSource(new CustomSource());
 
         SingleOutputStreamOperator<CustomInputModel> transformation =
         // transformation 处理逻辑
@@ -66,7 +69,8 @@ public class kafkaProducerExample {
             // 将对象转为字符串
             @Override
             public String map(CustomInputModel customInputModel) throws Exception {
-                return customInputModel.toString();
+//                return customInputModel.toString();
+                return objectMapper.writeValueAsString(customInputModel);
             }
         }).addSink(producer).name("kafka transformation");
 

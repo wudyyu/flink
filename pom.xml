@@ -39,6 +39,7 @@ under the License.
 		<fastjson.version>1.2.83</fastjson.version>
 		<mysql.version>8.0.23</mysql.version>
 		<druid.version>1.2.11</druid.version>
+		<flink.kafka.version>1.17.1</flink.kafka.version>
 	</properties>
 
 	<repositories>
@@ -71,6 +72,11 @@ under the License.
 <!--			<scope>provided</scope>-->
 <!--		</dependency>-->
 
+<!--		<dependency>-->
+<!--			<groupId>org.apache.flink</groupId>-->
+<!--			<artifactId>flink-connector-kafka_2.12</artifactId>-->
+<!--			<version>${flink.kafka.version}</version>-->
+<!--		</dependency>-->
 
 		<dependency>
 			<groupId>org.apache.flink</groupId>
@@ -125,6 +131,14 @@ under the License.
 <!--			<version>${flink.version}</version>-->
 <!--		</dependency>-->
 
+		<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-connector-base -->
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-connector-base</artifactId>
+			<version>${flink.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
 
 		<!--	Flink开发Scale需要的依赖	-->
 		<dependency>
@@ -175,12 +189,12 @@ under the License.
 			<version>${druid.version}</version>
 		</dependency>
 
-<!--		<dependency>-->
-<!--			<groupId>com.alibaba</groupId>-->
-<!--			<artifactId>fastjson</artifactId>-->
-<!--			<version>${fastjson.version}</version>-->
-<!--			<scope>provided</scope>-->
-<!--		</dependency>-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

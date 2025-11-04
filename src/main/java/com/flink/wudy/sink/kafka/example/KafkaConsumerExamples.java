@@ -2,6 +2,7 @@ package com.flink.wudy.sink.kafka.example;
 
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.api.java.utils.ParameterTool;
+import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.flink.streaming.api.CheckpointingMode;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSink;
@@ -22,6 +23,13 @@ import java.util.Properties;
  * >打开网页，进入: http://127.0.0.1:3030
  * >镜像的terminal不能关掉，重新新开一个teminal:docker run --rm -it --net=host lensesio/fast-data-dev bash
  * >创建topic: kafka-topics --create --topic flink-topic --partitions 3 --replication-factor 1 --bootstrap-server 127.0.0.1:9092
+ * >查看topic:
+ *  docker run --rm -it --net=host lensesio/fast-data-dev bash [进入镜像命令行模式]
+ *  kafka-topics --list --bootstrap-server localhost:9092
+ *
+ * >删除topic
+ *  kafka-topics  --bootstrap-server localhost:9092 --delete --topic   flink-sink-topic4
+ *
  * >producer写入数据: kafka-console-producer --broker-list 127.0.0.1:9092 --topic flink-topic
  * >consumer消费数据：kafka-console-consumer  --bootstrap-server localhost:9092 --topic flink-sink-topic --from-beginning
  *
@@ -44,6 +52,7 @@ import java.util.Properties;
  *
  */
 public class KafkaConsumerExamples {
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(ParameterTool.fromArgs(args).getConfiguration());

@@ -1,0 +1,16 @@
+syntax = "proto3";
+// proto 的package名称
+package com.flink.wudy.sink.kafka.model;
+// java package名称，如果不指定会默认用proto的package
+option java_package = "com.flink.wudy.sink.kafka.model";
+// 是否编译成多个文件
+option java_multiple_files = true;
+// java的封装类的类名
+option java_outer_classname = "KafkaSourceModelProtoBuf";
+message KafkaSourceModel {
+    optional string product_id= 1;
+    optional string product_name= 2;
+    optional int32 income = 3;
+    optional int32 count = 4;
+    optional string avg_price= 5;
+}

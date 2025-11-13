@@ -1,6 +1,5 @@
 package com.flink.wudy.entity;
 
-import com.flink.wudy.clickhouse.model.ChargeType;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -27,7 +26,7 @@ public class BillEntity implements Serializable {
     //计费项id
     private String itemId;
 
-    private ChargeType chargeType;
+    private String chargeType;
 
     private LocalDateTime createdAt;
 

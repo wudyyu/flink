@@ -26,7 +26,7 @@ public class BillEntityModel implements Serializable {
     //计费项id
     private String itemId;
 
-    private ChargeType chargeType;
+    private String chargeType;
 
     private LocalDateTime createdAt;
 

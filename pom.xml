@@ -125,12 +125,12 @@ under the License.
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-connector-base -->
-		<dependency>
-			<groupId>org.apache.flink</groupId>
-			<artifactId>flink-connector-base</artifactId>
-			<version>${flink.version}</version>
-			<scope>provided</scope>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.apache.flink</groupId>-->
+<!--			<artifactId>flink-connector-base</artifactId>-->
+<!--			<version>${flink.version}</version>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
 
 
 		<!--	Flink开发Scale需要的依赖	-->
@@ -211,17 +211,26 @@ under the License.
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.clickhouse/clickhouse-client -->
-		<dependency>
-			<groupId>com.clickhouse</groupId>
-			<artifactId>clickhouse-client</artifactId>
-			<version>0.8.6</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>com.clickhouse</groupId>-->
+<!--			<artifactId>clickhouse-client</artifactId>-->
+<!--			<version>0.8.6</version>-->
+<!--		</dependency>-->
 
 		<dependency>
 			<groupId>com.clickhouse</groupId>
 			<artifactId>clickhouse-jdbc</artifactId>
 			<version>${clickhouse.jdbc.version}</version>
 		</dependency>
+
+		<!--	protobuf	-->
+		<!-- https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java -->
+<!--		<dependency>-->
+<!--			<groupId>com.google.protobuf</groupId>-->
+<!--			<artifactId>protobuf-java</artifactId>-->
+<!--			<version>3.25.5</version>-->
+<!--		</dependency>-->
+
 	</dependencies>
 
 	<build>

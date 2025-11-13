@@ -7,6 +7,7 @@ import org.springframework.util.CollectionUtils;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
@@ -24,6 +25,7 @@ public class BillEntitySource extends RichSourceFunction<BillEntityModel> {
     private static final String ITEM_ID = "28771";
     private static final String REGION_ID = "10086";
 
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     @Override
     public void run(SourceContext<BillEntityModel> sourceContext) throws Exception {
@@ -58,7 +60,7 @@ public class BillEntitySource extends RichSourceFunction<BillEntityModel> {
             billEntityModel.setBillId(UUID.randomUUID().toString());
             int randomNumber = (new Random()).nextInt(10);
             billEntityModel.setPrice(new BigDecimal(randomNumber));
-            billEntityModel.setChargeType(ChargeType.POST_PAID);
+            billEntityModel.setChargeType(ChargeType.POST_PAID.getCode());
             Long startTime = initTimeStamp + (i - 1) * ONE_MIN_SECONDS;
             billEntityModel.setStartTime(startTime);
             Long endTime = startTime + ONE_MIN_SECONDS;

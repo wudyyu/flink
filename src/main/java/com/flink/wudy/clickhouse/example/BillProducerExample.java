@@ -18,6 +18,7 @@ import org.apache.kafka.clients.producer.ProducerConfig;
 
 import java.math.BigDecimal;
 import java.util.Properties;
+import java.util.UUID;
 
 /**
  * 将数据源的数据处理后写入到kafka
@@ -39,6 +40,7 @@ public class BillProducerExample {
         }).reduce(new ReduceFunction<BillEntityModel>() {
             @Override
             public BillEntityModel reduce(BillEntityModel acc, BillEntityModel in) throws Exception {
+                acc.setBillId(UUID.randomUUID().toString());
                 acc.setPrice(acc.getPrice().add(in.getPrice()));
                 Long min = Math.min(acc.getStartTime(), in.getStartTime());
                 acc.setStartTime(min);

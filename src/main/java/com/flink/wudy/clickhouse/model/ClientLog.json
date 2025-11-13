@@ -1,0 +1,21 @@
+[
+  {
+    "userId": "32578",
+    "userName": "wudy.yu",
+    "appId": "v100001",
+    "appVersion": "1.14.2",
+    "carrier": "中国联通",
+    "deviceNo": "3DDacFa9",
+    "deviceType": "HUAWEI META70",
+    "ip": "139.200.244.188",
+    "netType": "4G",
+    "osName": "HarmonyOS",
+    "osVersion": "4.2.0",
+    "sessionId": "b76df1fs61get282jsm",
+    "createdTime": "1763011040",
+    "detailTime": "1763011040100",
+    "eventId": "N",
+    "eventType": "login",
+    "gps": "116.33910433159372, 39.97342756125047"
+  }
+]

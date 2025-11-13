@@ -40,6 +40,11 @@ under the License.
 		<mysql.version>8.0.23</mysql.version>
 		<druid.version>1.2.11</druid.version>
 		<flink.kafka.version>1.17.1</flink.kafka.version>
+		<flink.connection.version>3.1.1-1.17</flink.connection.version>
+		<clickhouse.jdbc.version>0.4.6</clickhouse.jdbc.version>
+		<mybatisplus.version>3.5.5</mybatisplus.version>
+		<mapstruct.version>1.5.5.Final</mapstruct.version>
+		<dynamic.datasource.version>4.3.0</dynamic.datasource.version>
 	</properties>
 
 	<repositories>
@@ -97,12 +102,6 @@ under the License.
 			<artifactId>flink-walkthrough-common</artifactId>
 			<version>${flink.version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-walkthrough-common -->
-<!--		<dependency>-->
-<!--			<groupId>org.apache.flink</groupId>-->
-<!--			<artifactId>flink-walkthrough-common_2.12</artifactId>-->
-<!--			<version>${flink.version}</version>-->
-<!--		</dependency>-->
 
 
 		<dependency>
@@ -124,12 +123,6 @@ under the License.
 			<artifactId>flink-connector-kafka</artifactId>
 			<version>${flink.version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-connector-kafka -->
-<!--		<dependency>-->
-<!--			<groupId>org.apache.flink</groupId>-->
-<!--			<artifactId>flink-connector-kafka_2.12</artifactId>-->
-<!--			<version>${flink.version}</version>-->
-<!--		</dependency>-->
 
 		<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-connector-base -->
 		<dependency>
@@ -148,14 +141,6 @@ under the License.
 		</dependency>
 
 
-		<!-- Add logging framework, to produce console output when running in the IDE. -->
-		<!-- These dependencies are excluded from the application JAR by default. -->
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-slf4j-impl</artifactId>
-			<version>${log4j.version}</version>
-			<scope>runtime</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
@@ -195,6 +180,48 @@ under the License.
 			<version>${fastjson.version}</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-connector-jdbc -->
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-connector-jdbc</artifactId>
+			<version>${flink.connection.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+			<version>${mybatisplus.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>${mapstruct.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.baomidou/dynamic-datasource-spring-boot-starter -->
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+			<version>${dynamic.datasource.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.clickhouse/clickhouse-client -->
+		<dependency>
+			<groupId>com.clickhouse</groupId>
+			<artifactId>clickhouse-client</artifactId>
+			<version>0.8.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.clickhouse</groupId>
+			<artifactId>clickhouse-jdbc</artifactId>
+			<version>${clickhouse.jdbc.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -208,6 +235,26 @@ under the License.
 				<configuration>
 					<source>${target.java.version}</source>
 					<target>${target.java.version}</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.11.0</version>
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>${lombok.version}</version>
+						</path>
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>${mapstruct.version}</version>
+						</path>
+					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
 

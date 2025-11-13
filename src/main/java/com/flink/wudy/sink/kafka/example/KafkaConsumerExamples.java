@@ -18,7 +18,7 @@ import java.util.Properties;
 /**
  * 前置操作: 需要先安装kafka
  * 1.Mac下Docker快速安装:
- * >拉取镜像: docker pull lensesio/fast-data-dev
+ * >拉取镜像: docker pull lensesio/fast-data-dev  [https://github.com/lensesio/fast-data-dev]
  * >启动镜像：docker run --rm -it     -p 2181:2181 -p 3030:3030 -p 8091:8091     -p 8092:8092 -p 8093:8093 -p 9092:9092 -e ADV_HOST=127.0.0.1 lensesio/fast-data-dev
  * >打开网页，进入: http://127.0.0.1:3030
  * >镜像的terminal不能关掉，重新新开一个teminal:docker run --rm -it --net=host lensesio/fast-data-dev bash

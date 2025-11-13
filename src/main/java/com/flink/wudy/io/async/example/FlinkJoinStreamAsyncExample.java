@@ -31,6 +31,7 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 /*
+ 参考: https://mp.weixin.qq.com/s/7BGb55_7WdHwK0NvFm4n2w
 * 异步IO处理 API的注意事项
 * 异步IO算子输入数据的顺序(source -> keyby -> map -> flatmap) 与 经过异步IO算子处理后的输出结果的顺序 需要保证一致性?
 * >1.产出数据的顺序保障:

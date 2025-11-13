@@ -1,0 +1,43 @@
+#spring:
+#  application:
+#    name: flink-demo
+#  datasource:
+#    type: com.zaxxer.hikari.HikariDataSource
+#    url: jdbc:clickhouse://127.0.0.1:8123/wudy
+#    driver-class-name: ru.yandex.clickhouse.ClickHouseDriver
+#    username: default
+#    password: WOaiyuyu123
+
+spring:
+  # 数据库配置
+  datasource:
+    dynamic:
+      # 设置默认的数据源或者数据源组,默认值为 master
+      primary: mysql
+      datasource:
+        mysql:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/bss?serverTimezone=Asia/Shanghai
+          username: root
+          password: WOaiyuyu123
+        clickhouse:
+          driver-class-name: com.clickhouse.jdbc.ClickHouseDriver
+          url: jdbc:ch://localhost:8123/wudy?serverTimezone=Asia/Shanghai
+          username: default
+          password: WOaiyuyu123
+
+mybatis-plus:
+  type-aliases-package: com.flink.wudy.entity
+  mapper-locations: classpath*:/mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true  #开启驼峰命名
+    cache-enabled: false #开启二级缓存
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 控制台日志
+  check-config-location: true # 检查xml是否存在
+  global-config:
+    db-config:
+      logic-not-delete-value: 1
+      logic-delete-field: isDel
+      logic-delete-value: 0
+server:
+  port: 18123

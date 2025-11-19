@@ -13,7 +13,25 @@ import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 /**
- * 读取到kafka中处理后的数据，然后写入ck中
+ * 1.读取到kafka中处理后的数据，然后写入ck中
+   2.CK表结构
+     CREATE TABLE wudy.bill
+     (
+     `bill_id` String,
+     `project_id` Int64,
+     `price` Decimal(18, 2),
+     `region_id` String,
+     `item_id` String,
+     `charge_type` String,
+     `created_at` DateTime,
+     `start_time` UInt64,
+     `end_time` UInt64
+     )
+     ENGINE = ReplacingMergeTree
+     PARTITION BY toYYYYMM(created_at)
+     ORDER BY (created_at, bill_id, project_id, region_id, item_id)
+     SETTINGS index_granularity = 8192;
+
  */
 public class BillConsumerExample {
     public static void main(String[] args) throws Exception {

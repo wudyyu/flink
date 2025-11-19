@@ -12,7 +12,7 @@ public class MySqlConfig {
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/bss?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true";
 
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "";  // 修正拼写错误
+    private static final String PASSWORD = "WOaiyuyu123";  // 修正拼写错误
 
     private static transient Connection connection;
 

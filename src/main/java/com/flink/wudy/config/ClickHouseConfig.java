@@ -19,7 +19,7 @@ public class ClickHouseConfig {
     public static Connection getConnection() throws SQLException {
         Properties properties = new Properties();
         properties.setProperty("user", "default");
-        properties.setProperty("password", "");
+        properties.setProperty("password", "WOaiyuyu123");
         return DriverManager.getConnection(URL, properties);
     }
 

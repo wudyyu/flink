@@ -45,6 +45,8 @@ under the License.
 		<mybatisplus.version>3.5.5</mybatisplus.version>
 		<mapstruct.version>1.5.5.Final</mapstruct.version>
 		<dynamic.datasource.version>4.3.0</dynamic.datasource.version>
+		<nacos.client.version>2.5.2</nacos.client.version>
+		<rocksdb.version>10.2.1</rocksdb.version>
 	</properties>
 
 	<repositories>
@@ -221,6 +223,25 @@ under the License.
 			<groupId>com.clickhouse</groupId>
 			<artifactId>clickhouse-jdbc</artifactId>
 			<version>${clickhouse.jdbc.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.alibaba.nacos/nacos-client -->
+		<dependency>
+			<groupId>com.alibaba.nacos</groupId>
+			<artifactId>nacos-client</artifactId>
+			<version>${nacos.client.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.rocksdb</groupId>
+			<artifactId>rocksdbjni</artifactId>
+			<version>${rocksdb.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-statebackend-rocksdb</artifactId>
+			<version>${flink.version}</version>
 		</dependency>
 
 		<!--	protobuf	-->
